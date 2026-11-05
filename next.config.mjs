@@ -11,6 +11,15 @@ const nextConfig = {
     unoptimized: true,
   },
   transpilePackages: ['lucide-react'],
+  async redirects() {
+    return [
+      {
+        source: '/archive/:slug',
+        destination: '/work/:slug',
+        permanent: false,
+      },
+    ];
+  },
   webpack: (config) => {
     config.resolve.alias['@'] = path.resolve(__dirname, 'src');
     return config;
