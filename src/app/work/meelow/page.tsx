@@ -7,7 +7,7 @@ export default function MeelowCaseStudy() {
   return (
     <div className="w-full flex flex-col items-center">
       {/* ────────────────── TOP BREADCRUMB ────────────────── */}
-      <div className="w-full max-w-5xl px-6 pt-12 pb-6">
+      <div className="w-full max-w-5xl px-6 pt-28 sm:pt-36 pb-6">
         <Link
           href="/#work"
           className="inline-flex items-center gap-2 text-xs font-mono text-zinc-500 hover:text-white transition-colors"
@@ -59,7 +59,7 @@ export default function MeelowCaseStudy() {
 
       {/* ────────────────── HERO VISUAL (IMG 01) ────────────────── */}
       <div className="w-full max-w-5xl px-6 py-8">
-        <PlaceholderImage
+        <PlaceholderImage accentColor="emerald"
           id="IMG_01"
           title="Safety Without Surveillance Hero Split"
           filename="meelow-01-hero-safety-without-surveillance.png"
@@ -117,7 +117,7 @@ export default function MeelowCaseStudy() {
 
         {/* Competitive Teardown (IMG 02) */}
         <div className="my-8">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="emerald"
             id="IMG_02"
             title="Competitive Teardown Matrix (The Binary Trap)"
             filename="meelow-02-competitive-teardown.png"
@@ -169,7 +169,7 @@ export default function MeelowCaseStudy() {
 
         {/* Asymmetric Matrix Visual (IMG 03) */}
         <div className="my-8">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="emerald"
             id="IMG_03"
             title="The Asymmetric Directional Matrix"
             filename="meelow-03-asymmetric-directional-matrix.png"
@@ -201,7 +201,7 @@ export default function MeelowCaseStudy() {
 
         {/* Circles Visual (IMG 04) */}
         <div className="my-8">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="emerald"
             id="IMG_04"
             title="Circles & Consent-First Invitation Flow"
             filename="meelow-04-circles-consent-invitation.png"
@@ -242,7 +242,7 @@ export default function MeelowCaseStudy() {
 
         {/* Intent Sharing Selector (IMG 05) */}
         <div className="my-8">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="emerald"
             id="IMG_05"
             title="The 5 Intent-Based Sharing Modes"
             filename="meelow-05-intent-sharing-selector.png"
@@ -277,7 +277,7 @@ export default function MeelowCaseStudy() {
 
         {/* Geofence Visual (IMG 06) */}
         <div className="my-8">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="emerald"
             id="IMG_06"
             title="Approximate Neighborhood Geofencing UI"
             filename="meelow-06-approximate-location-geofence.png"
@@ -289,7 +289,7 @@ export default function MeelowCaseStudy() {
 
         {/* Stealth Pause (IMG 07) & Ambient Map (IMG 08) */}
         <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="emerald"
             id="IMG_07"
             title="The Stealth 'Pause' State Architecture"
             filename="meelow-07-stealth-pause-architecture.png"
@@ -297,7 +297,7 @@ export default function MeelowCaseStudy() {
             dimensions="2560 × 1600 px"
             description="Interface walkthrough of the Pause experience: The user's 1-tap 'Pause My Transmission' control alongside the recipient's calm, non-accusatory 'Last seen 24 mins ago near...' contact state."
           />
-          <PlaceholderImage
+          <PlaceholderImage accentColor="emerald"
             id="IMG_08"
             title="The Ambient Map System & Contact Cards"
             filename="meelow-08-ambient-map-system.png"
@@ -339,7 +339,7 @@ export default function MeelowCaseStudy() {
 
         {/* Sender & Receiver SOS Images (IMG 09 & IMG 10) */}
         <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="emerald"
             id="IMG_09"
             title="Sender SOS: 1-Hand Rapid Trigger & Countdown"
             filename="meelow-09-sender-sos-trigger.png"
@@ -347,7 +347,7 @@ export default function MeelowCaseStudy() {
             dimensions="2560 × 1600 px"
             description="Sender emergency sequence: 3-second tactile hold countdown ring, silent trigger confirmation screen, and the active emergency status bar showing active trusted watchers."
           />
-          <PlaceholderImage
+          <PlaceholderImage accentColor="emerald"
             id="IMG_10"
             title="Receiver SOS: High-Priority Intervention UI"
             filename="meelow-10-receiver-sos-intervention.png"
@@ -359,7 +359,7 @@ export default function MeelowCaseStudy() {
 
         {/* Duress PIN Defense Visual (IMG 11) */}
         <div className="my-8">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="emerald"
             id="IMG_11"
             title="Coerced Cancellation Defense (Duress PIN)"
             filename="meelow-11-duress-pin-defense.png"
@@ -394,7 +394,7 @@ export default function MeelowCaseStudy() {
 
         {/* Super-App IA (IMG 12) & Fintech Engine (IMG 13) */}
         <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="emerald"
             id="IMG_12"
             title="Super-App Information Architecture"
             filename="meelow-12-superapp-information-architecture.png"
@@ -402,7 +402,7 @@ export default function MeelowCaseStudy() {
             dimensions="2400 × 1350 px"
             description="Full platform structural sitemap and navigation schema illustrating how Meelow cleanly isolates the Safety & Map layer from the high-frequency Fintech & Utilities engine."
           />
-          <PlaceholderImage
+          <PlaceholderImage accentColor="emerald"
             id="IMG_13"
             title="High-Frequency Fintech Engine (Wallet & Cards)"
             filename="meelow-13-fintech-wallet-and-cards.png"
@@ -414,7 +414,7 @@ export default function MeelowCaseStudy() {
 
         {/* Admin Console (IMG 14) */}
         <div className="my-8">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="emerald"
             id="IMG_14"
             title="Admin Incident Response & Operations Console"
             filename="meelow-14-admin-operations-console.png"
@@ -443,7 +443,7 @@ export default function MeelowCaseStudy() {
 
         {/* Design System Visual (IMG 15) */}
         <div className="my-8">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="emerald"
             id="IMG_15"
             title="The Design System & Accessible Geospatial Tokens"
             filename="meelow-15-design-system-tokens.png"

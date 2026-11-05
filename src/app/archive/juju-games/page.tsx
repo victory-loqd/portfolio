@@ -7,7 +7,7 @@ export default function JujuGamesRetrospective() {
   return (
     <div className="w-full flex flex-col items-center">
       {/* ────────────────── TOP BREADCRUMB ────────────────── */}
-      <div className="w-full max-w-5xl px-6 pt-12 pb-6">
+      <div className="w-full max-w-5xl px-6 pt-28 sm:pt-36 pb-6">
         <Link
           href="/#archive"
           className="inline-flex items-center gap-2 text-xs font-mono text-zinc-500 hover:text-white transition-colors"
@@ -59,7 +59,7 @@ export default function JujuGamesRetrospective() {
 
       {/* ────────────────── HERO VISUAL (IMG 01) ────────────────── */}
       <div className="w-full max-w-5xl px-6 py-8">
-        <PlaceholderImage
+        <PlaceholderImage accentColor="purple"
           id="IMG_01"
           title="Studio Retrospective Hero & Title Suite"
           filename="juju-01-hero-studio-suite.png"
@@ -93,7 +93,7 @@ export default function JujuGamesRetrospective() {
 
         {/* Chronology Visual (IMG 02) */}
         <div className="my-8">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="purple"
             id="IMG_02"
             title="The Co-Founding Chronology & Evolution"
             filename="juju-02-chronology-evolution.png"
@@ -130,7 +130,7 @@ export default function JujuGamesRetrospective() {
 
         {/* Vodou Concept (IMG 03) */}
         <div className="my-8">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="purple"
             id="IMG_03"
             title="Vodou: A Space Odyssey — World & Concept Direction"
             filename="juju-03-vodou-world-direction.png"
@@ -142,7 +142,7 @@ export default function JujuGamesRetrospective() {
 
         {/* Cockpit HUD (IMG 04) & Inventory Economy (IMG 05) */}
         <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="purple"
             id="IMG_04"
             title="Vodou — Cockpit Telemetry & Real-Time HUD"
             filename="juju-04-vodou-cockpit-hud.png"
@@ -150,7 +150,7 @@ export default function JujuGamesRetrospective() {
             dimensions="2560 × 1440 px"
             description="High-fidelity cockpit UI overlay: Real-time telemetry, shield integrity rings, dynamic orbital reticle, and low-distraction peripheral warning states."
           />
-          <PlaceholderImage
+          <PlaceholderImage accentColor="purple"
             id="IMG_05"
             title="The Grid Inventory & Crafting Economy System"
             filename="juju-05-inventory-crafting-system.png"
@@ -182,7 +182,7 @@ export default function JujuGamesRetrospective() {
 
         {/* Boju Boju Sensory (IMG 06) & Payton Ville Quest (IMG 07) */}
         <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="purple"
             id="IMG_06"
             title="Boju Boju — Stealth & Proximity Sensory UI"
             filename="juju-06-boju-boju-sensory-ui.png"
@@ -190,7 +190,7 @@ export default function JujuGamesRetrospective() {
             dimensions="2560 × 1440 px"
             description="In-game stealth view: Vignette visibility shading, ambient heartbeat pulse indicator, interaction prompts, and mythological creature encounter HUD."
           />
-          <PlaceholderImage
+          <PlaceholderImage accentColor="purple"
             id="IMG_07"
             title="Payton Ville — Branching Quest & Dialogue Engine"
             filename="juju-07-payton-ville-quest-engine.png"
@@ -222,7 +222,7 @@ export default function JujuGamesRetrospective() {
 
         {/* Production Board (IMG 08) */}
         <div className="my-8">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="purple"
             id="IMG_08"
             title="The Multi-Disciplinary Production Pipeline"
             filename="juju-08-production-pipeline-board.png"
@@ -234,7 +234,7 @@ export default function JujuGamesRetrospective() {
 
         {/* Pitch Decks (IMG 09) & Press Validation (IMG 10) */}
         <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="purple"
             id="IMG_09"
             title="Publisher Pitch Materials & Commercial Decks"
             filename="juju-09-pitch-deck-showcase.png"
@@ -242,7 +242,7 @@ export default function JujuGamesRetrospective() {
             dimensions="2560 × 1600 px"
             description="Multi-slide layout of the official Juju Games Publisher Pitch Deck: Market demographic analysis, game mechanics breakdowns, production budget, and monetization roadmap."
           />
-          <PlaceholderImage
+          <PlaceholderImage accentColor="purple"
             id="IMG_10"
             title="External Validation, Press & Cultural Footprint"
             filename="juju-10-press-community-validation.png"

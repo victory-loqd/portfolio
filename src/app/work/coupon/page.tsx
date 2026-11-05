@@ -7,7 +7,7 @@ export default function CouponCaseStudy() {
   return (
     <div className="w-full flex flex-col items-center">
       {/* ────────────────── TOP BREADCRUMB ────────────────── */}
-      <div className="w-full max-w-5xl px-6 pt-12 pb-6">
+      <div className="w-full max-w-5xl px-6 pt-28 sm:pt-36 pb-6">
         <Link
           href="/#work"
           className="inline-flex items-center gap-2 text-xs font-mono text-zinc-500 hover:text-white transition-colors"
@@ -59,7 +59,7 @@ export default function CouponCaseStudy() {
 
       {/* ────────────────── HERO VISUAL (IMG 01) ────────────────── */}
       <div className="w-full max-w-5xl px-6 py-8">
-        <PlaceholderImage
+        <PlaceholderImage accentColor="teal"
           id="IMG_01"
           title="Hero Product Ecosystem Split (Marketplace ➔ Portfolio)"
           filename="coupon-01-hero-ecosystem-split.png"
@@ -123,7 +123,7 @@ export default function CouponCaseStudy() {
 
         {/* Macroeconomic Yield Matrix Visual (IMG 02) */}
         <div className="my-8">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="teal"
             id="IMG_02"
             title="Macroeconomic Yield Matrix & Benchmarks"
             filename="coupon-02-macroeconomic-yield-matrix.png"
@@ -191,7 +191,7 @@ export default function CouponCaseStudy() {
 
         {/* 8-Domain Sitemap Visual (IMG 03) */}
         <div className="my-8">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="teal"
             id="IMG_03"
             title="The 8-Domain Product Architecture Sitemap"
             filename="coupon-03-eight-domain-architecture.png"
@@ -223,7 +223,7 @@ export default function CouponCaseStudy() {
 
         {/* Marketplace (IMG 04) & Credibility Sheet (IMG 05) */}
         <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="teal"
             id="IMG_04"
             title="Marketplace Discovery & Comparison Engine"
             filename="coupon-04-marketplace-discovery.png"
@@ -231,7 +231,7 @@ export default function CouponCaseStudy() {
             dimensions="2560 × 1600 px"
             description="Marketplace discovery interface: Tenor filter pills (30d, 90d, 180d, 365d), institution rate cards, net yield comparisons, and regulatory assurance chips."
           />
-          <PlaceholderImage
+          <PlaceholderImage accentColor="teal"
             id="IMG_05"
             title="Institution Due Diligence & Credibility Sheet"
             filename="coupon-05-institution-credibility-sheet.png"
@@ -266,7 +266,7 @@ export default function CouponCaseStudy() {
 
         {/* Investment Config (IMG 06) */}
         <div className="my-8">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="teal"
             id="IMG_06"
             title="Investment Amount & Tenor Configuration Modeler"
             filename="coupon-06-investment-config-modeler.png"
@@ -278,7 +278,7 @@ export default function CouponCaseStudy() {
 
         {/* Emergency Break (IMG 07) & Transaction Review (IMG 08) */}
         <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="teal"
             id="IMG_07"
             title="The 'Emergency Break' Liquidation Disclosure Card"
             filename="coupon-07-emergency-break-disclosure.png"
@@ -286,7 +286,7 @@ export default function CouponCaseStudy() {
             dimensions="2560 × 1600 px"
             description="The pre-commitment Emergency Break card: Clear visual progress bar showing penal interest forfeiture tiers, principal safety guarantee, and estimated liquidation turnaround time."
           />
-          <PlaceholderImage
+          <PlaceholderImage accentColor="teal"
             id="IMG_08"
             title="Transaction Review & Security PIN Confirmation"
             filename="coupon-08-transaction-review-pin.png"
@@ -336,7 +336,7 @@ export default function CouponCaseStudy() {
 
         {/* Async Processing States (IMG 09) & Timeout Flow (IMG 12) */}
         <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="teal"
             id="IMG_09"
             title="Asynchronous Processing & Settlement State Machine"
             filename="coupon-09-asynchronous-processing-states.png"
@@ -344,7 +344,7 @@ export default function CouponCaseStudy() {
             dimensions="2400 × 1350 px"
             description="Multi-screen progression of the settlement flow: Step-by-step processing tracker (Debit Confirmed ➔ Routing Funds ➔ Issuing Certificate), and the background processing receipt."
           />
-          <PlaceholderImage
+          <PlaceholderImage accentColor="teal"
             id="IMG_12"
             title="Defensive State Design: Bank API Timeout Flow"
             filename="coupon-12-defensive-timeout-flow.png"
@@ -381,7 +381,7 @@ export default function CouponCaseStudy() {
 
         {/* Portfolio (IMG 10) & Maturity (IMG 11) */}
         <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="teal"
             id="IMG_10"
             title="Active Portfolio & Accrued Earnings Dashboard"
             filename="coupon-10-active-portfolio-dashboard.png"
@@ -389,7 +389,7 @@ export default function CouponCaseStudy() {
             dimensions="2560 × 1600 px"
             description="Active Portfolio interface: Total active investment counter, live daily accrued interest ticker, interactive maturity timeline, and active deposit cards."
           />
-          <PlaceholderImage
+          <PlaceholderImage accentColor="teal"
             id="IMG_11"
             title="The 3-Way Maturity Automation Engine"
             filename="coupon-11-maturity-automation-engine.png"
@@ -401,7 +401,7 @@ export default function CouponCaseStudy() {
 
         {/* KYC Matrix (IMG 13) */}
         <div className="my-8">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="teal"
             id="IMG_13"
             title="Progressive KYC Tiering & Verification Matrix"
             filename="coupon-13-progressive-kyc-matrix.png"
@@ -430,7 +430,7 @@ export default function CouponCaseStudy() {
 
         {/* System Reconciliation (IMG 14) & Design Tokens (IMG 15) */}
         <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="teal"
             id="IMG_14"
             title="System Audit: 141 ➔ 115 Canonical Screen Reconciliation"
             filename="coupon-14-system-reconciliation-audit.png"
@@ -438,7 +438,7 @@ export default function CouponCaseStudy() {
             dimensions="2400 × 1350 px"
             description="Architectural audit visual contrasting the legacy 141-screen fragmented sprawl against the reconciled 115-screen canonical flow structure with color-coded domain clusters."
           />
-          <PlaceholderImage
+          <PlaceholderImage accentColor="teal"
             id="IMG_15"
             title="The Design System: Tabular Numerics & Status Badges"
             filename="coupon-15-design-system-tokens.png"

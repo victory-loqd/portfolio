@@ -7,7 +7,7 @@ export default function LoqdCaseStudy() {
   return (
     <div className="w-full flex flex-col items-center">
       {/* ────────────────── TOP BREADCRUMB ────────────────── */}
-      <div className="w-full max-w-5xl px-6 pt-12 pb-6">
+      <div className="w-full max-w-5xl px-6 pt-28 sm:pt-36 pb-6">
         <Link
           href="/#work"
           className="inline-flex items-center gap-2 text-xs font-mono text-zinc-500 hover:text-white transition-colors"

@@ -7,7 +7,7 @@ export default function EarlierSystemsRetrospective() {
   return (
     <div className="w-full flex flex-col items-center">
       {/* ────────────────── TOP BREADCRUMB ────────────────── */}
-      <div className="w-full max-w-5xl px-6 pt-12 pb-6">
+      <div className="w-full max-w-5xl px-6 pt-28 sm:pt-36 pb-6">
         <Link
           href="/#archive"
           className="inline-flex items-center gap-2 text-xs font-mono text-zinc-500 hover:text-white transition-colors"
@@ -83,7 +83,7 @@ export default function EarlierSystemsRetrospective() {
 
         {/* VROOM Dual-App Hero (IMG 01) */}
         <div className="my-8">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="amber"
             id="IMG_RETRO_01"
             title="VROOM: Dual-App Split (Rider vs. Driver UI)"
             filename="vroom-01-dual-app-split.png"
@@ -117,7 +117,7 @@ export default function EarlierSystemsRetrospective() {
 
         {/* VROOM Handshake (IMG 02) & Gamified Progression (IMG 03) */}
         <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="amber"
             id="IMG_RETRO_02"
             title="VROOM: Security Code Handshake & Panic Flow"
             filename="vroom-02-security-handshake-panic.png"
@@ -125,7 +125,7 @@ export default function EarlierSystemsRetrospective() {
             dimensions="2560 × 1600 px"
             description="The Security Code Matching modal on driver arrival (4-digit verification PIN), the emergency in-trip Panic Button card, and the 'My Circle' live family tracking sheet."
           />
-          <PlaceholderImage
+          <PlaceholderImage accentColor="amber"
             id="IMG_RETRO_03"
             title="VROOM: Gamified Progression & Driver XP"
             filename="vroom-03-gamified-progression.png"
@@ -155,7 +155,7 @@ export default function EarlierSystemsRetrospective() {
 
         {/* SKRHYB Dual-User Architecture (IMG 04) */}
         <div className="my-8">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="amber"
             id="IMG_RETRO_04"
             title="SKRHYB: Dual-User Architecture (Provider vs. Consumer)"
             filename="skrhyb-04-dual-user-architecture.png"
@@ -167,7 +167,7 @@ export default function EarlierSystemsRetrospective() {
 
         {/* Booking Flow (IMG 05) & Multi-Platform DS (IMG 06) */}
         <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="amber"
             id="IMG_RETRO_05"
             title="SKRHYB: Sub-60s Booking & Discovery Flow"
             filename="skrhyb-05-booking-flow.png"
@@ -175,7 +175,7 @@ export default function EarlierSystemsRetrospective() {
             dimensions="2560 × 1600 px"
             description="Step-by-step consumer booking progression: Service category picker, verified provider profile, calendar slot selection, and checkout sheet."
           />
-          <PlaceholderImage
+          <PlaceholderImage accentColor="amber"
             id="IMG_RETRO_06"
             title="SKRHYB: Multi-Platform Component Library"
             filename="skrhyb-06-design-system.png"
@@ -205,7 +205,7 @@ export default function EarlierSystemsRetrospective() {
 
         {/* Paste-a-Link Intake (IMG 07) */}
         <div className="my-8">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="amber"
             id="IMG_RETRO_07"
             title="GLOBLSERVICE: 'Paste-a-Link' Intake Interface"
             filename="globlservice-07-paste-a-link-intake.png"
@@ -217,7 +217,7 @@ export default function EarlierSystemsRetrospective() {
 
         {/* Cost Breakdown (IMG 08) & Multi-Leg Tracker (IMG 09) */}
         <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <PlaceholderImage
+          <PlaceholderImage accentColor="amber"
             id="IMG_RETRO_08"
             title="GLOBLSERVICE: Localized Transparent Cost Engine"
             filename="globlservice-08-cost-breakdown-sheet.png"
@@ -225,7 +225,7 @@ export default function EarlierSystemsRetrospective() {
             dimensions="2560 × 1600 px"
             description="The Transparent Quotation Modal: Currency conversion breakdown, local payment options, estimated doorstep delivery window, and customs clearance assurance."
           />
-          <PlaceholderImage
+          <PlaceholderImage accentColor="amber"
             id="IMG_RETRO_09"
             title="GLOBLSERVICE: Live Multi-Leg Customs Tracker"
             filename="globlservice-09-multi-leg-tracker.png"
