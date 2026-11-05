@@ -1,279 +1,296 @@
-# Meelow
+# Meelow: Safety Without Surveillance
+
+> **How we engineered a consent-first personal safety and location system—balancing deep family protection against the psychological burden of constant surveillance in an African urban super-app.**
+
+---
+
+## ⚡ Executive Blueprint (The 60-Second Scan)
 
-## Safety without surveillance
+* **Role:** Lead Product Designer (Mobile App, Systems Architecture & Administrative Operations)
+* **Timeline:** Design & System Architecture Phase
+* **Platform Scope:** iOS & Android Mobile Application, Centralized Back-Office Administrative Console
+* **Domain:** Personal Safety, Asymmetric Permission Systems, Geospatial UX, Multi-Tenant Fintech Super-App
+* **The Core Paradox:** Urban mobility in major African metropolitan centers (such as Lagos) carries genuine physical security risks—late-night commuting, inter-state transit, police harassment, and kidnapping. People want their loved ones to know they are safe. However, existing safety apps (Life360, Apple Find My) enforce a suffocating, binary model: you are either broadcasted 24/7 with pinpoint GPS precision, or you are invisible. In practice, this turns protective care into toxic surveillance, causing teenagers, young adults, and partners to disable location sharing entirely or use GPS-spoofing workarounds.
+* **The Strategic Transformation:** We re-architected location sharing around **granular intent and asymmetric consent**. We decoupled being connected from sharing coordinates, introduced **approximate neighborhood geofencing**, built a **stealth pause state** to eliminate interpersonal drama, engineered a **two-sided SOS emergency protocol with duress defense**, and segregated high-anxiety safety workflows from everyday utility payments.
 
-Meelow combines personal safety, location sharing, communication, payments, utilities, cards, and administrative operations in one product ecosystem. My work focused on making its safety model understandable: helping people stay connected to those they trust without turning care into constant surveillance.
+---
 
-**Role:** Product Designer  
-**Scope:** Product architecture, information architecture, interaction design, permission modelling, state design, mobile UX, admin UX, prototyping, and component systems
+```
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                   THE 15-ARTIFACT VISUAL NARRATIVE MAP                                  │
+├────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 01. The Dual-Paradox Hero Showcase             │ 09. Sender SOS: 1-Hand Rapid Trigger & Countdown      │
+│ 02. The "Binary Trap" Competitive Teardown     │ 10. Receiver SOS: High-Priority Intervention UI       │
+│ 03. The Asymmetric Directional Matrix          │ 11. Coerced Cancellation Defense (Duress PIN)         │
+│ 04. Circles & Consent-First Invitation Flow    │ 12. Super-App Information Architecture (Safety/Fintech│
+│ 05. The 5 Intent-Based Sharing Modes           │ 13. High-Frequency Fintech Engine (Wallet & Cards)    │
+│ 06. Approximate Neighborhood Geofencing UI     │ 14. Admin Incident Response & Operations Console      │
+│ 07. The Stealth "Pause" State Architecture     │ 15. The Design System & Accessible Geospatial Tokens  │
+│ 08. The Ambient Map System & Contact Cards     │                                                       │
+└────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 1. Context & The Core Paradox: Care vs. Control
+
+Location-sharing products traditionally treat location as a physical tracking coordinate. In real human relationships, **location is social currency, autonomy, and vulnerability.**
+
+```
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                   THE PSYCHOLOGICAL TENSION ON THE GROUND                              │
+├───────────────────────────────────────────────────┬────────────────────────────────────────────────────┤
+│ THE REASSURANCE NEED                              │ THE SURVEILLANCE BACKLASH                          │
+├───────────────────────────────────────────────────┼────────────────────────────────────────────────────┤
+│ • "Did my sister make it across Third Mainland    │ • "Why is my mother monitoring whether I am at a   │
+│   Bridge safely in that late-night ride-hail?"    │   colleague's apartment or a lounge on Friday?"    │
+│ • "Did my delivery driver arrive at the drop-off?"│ • "Does my employer need to track my home address  │
+│ • "Can my friends find me in an emergency?"       │   over the weekend just because we share a circle?"│
+└───────────────────────────────────────────────────┴────────────────────────────────────────────────────┘
+```
+
+### The Breakdown of Traditional Tools (The "Binary Trap")
+When we audited Apple Find My, Life360, and WhatsApp Live Location, we observed a universal behavioral breakdown:
+* **The Binary Trap:** Location is either permanently ON or OFF. There is no middle ground.
+* **Symmetric Assumption:** The software forces mutual visibility. If A can see B, B must see A.
+* **Social Punishment:** When an individual turns off location sharing on Life360, the entire group is sent a conspicuous alert (*“Tobi stopped sharing location”*). This triggers interrogations, suspicion, and family conflict.
+* **The Workaround:** Users resort to turning off phone Wi-Fi, leaving phones behind, or using GPS spoofers—destroying the safety network precisely when real emergencies strike.
+
+> 🖼️ **[IMG_01: HERO_SAFETY_WITHOUT_SURVEILLANCE]**  
+> *Format: 16:9 Widescreen (2400x1350px)*  
+> *Content: Multi-device hero visual: Meelow mobile app displaying the ambient, non-intrusive map interface with approximate location clusters, juxtaposed against the granular permission control sheet and the dark-mode Admin console.*
+
+> 🖼️ **[IMG_02: COMPETITIVE_TEARDOWN_MATRIX]**  
+> *Format: 16:9 (2000x1125px)*  
+> *Content: Teardown comparison diagram evaluating Apple Find My, Life360, Google Maps, and Meelow across 4 vectors: Granular Consent, Asymmetric Visibility, Social Friction on Pause, and Emergency Escalation.*
+
+---
+
+## 2. Decision 1: The Asymmetric Directional Model
+
+### The Insight
+Connection does not equal permission. Two people in a circle rarely have identical privacy obligations to one another.
 
-## Overview
+### The System Architecture: "Who Sees Me" vs. "Who I See"
+Instead of a single "Shared" status toggle, every contact relationship in Meelow is broken into two independent, directional vectors:
 
-Location sharing often looks simple on a map. Underneath the interface, it is a permissions system involving people, relationships, time, precision, consent, and emergency behaviour.
+```
+Ada ──(Shares Approximate Location)──► Tobi
+Tobi ──(Does NOT Share Location)─────► Ada
+```
 
-Meelow made that problem more complex by combining safety with chat, wallets, bill payments, airtime, data, electricity, cable, betting, gift cards, virtual cards, education services, and administrative tools.
+* **Ada can see Tobi's location**, but Tobi cannot see Ada’s.
+* **Ada can share high-precision GPS**, while Tobi shares only an approximate neighborhood perimeter.
+* **Visibility is directional, independent, and renegotiable** at any moment without severing the social connection.
 
-The product needed to support a broad range of services without allowing the safety experience to become another disconnected feature.
+> 🖼️ **[IMG_03: ASYMMETRIC_DIRECTIONAL_MATRIX]**  
+> *Format: 16:9 (2000x1125px)*  
+> *Content: Visual interface state map showing the two distinct dashboard perspectives: "Who Can See You" (inward access control) and "Who You Can See" (outward tracking capability) with individual directional status badges.*
+
+---
+
+## 3. Decision 2: Circles as Context, Not Permission Bundles
+
+In legacy apps, joining a "Family Circle" automatically gives every member unconditional tracking rights.
+
+### The Consent-First Invitation Flow
+In Meelow, **Circles are relationship groupings, not blanket permission grants:**
+1. **Creation:** A user creates a circle: *Family*, *Friends*, *Coworkers*, or *Custom (e.g., Road Trip)*.
+2. **Explicit Handshake:** Adding someone to a circle merely opens a channel. It grants zero location rights.
+3. **Granular Handshake:** Each member must explicitly choose their individual sharing level with each other member upon entering the circle.
+
+> 🖼️ **[IMG_04: CIRCLES_CONSENT_INVITATION]**  
+> *Format: 16:10 (2560x1600px)*  
+> *Content: Step-by-step invitation flow: Circle creation card, member invitation sheet, and the recipient's consent modal featuring granular permission toggles before acceptance.*
+
+---
+
+## 4. Decision 3: Five Intent-Based Sharing Modes
+
+Location sharing is not one homogeneous behavior. An individual meeting a stranger from an online marketplace has radically different safety needs than an elderly parent living alone.
+
+We designed five explicit sharing modes:
 
-My central design question was:
+```
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                   THE 5 SHARING MODES SPECIFICATION                                    │
+├───────────────────────┬──────────────────────────────────────────┬─────────────────────────────────────┤
+│ MODE                  │ TRIGGER & TENOR                          │ IDEAL USE CASE                      │
+├───────────────────────┼──────────────────────────────────────────┼─────────────────────────────────────┤
+│ 1. Temporary Trip     │ 1 hr, 4 hrs, or until destination reached│ Late-night Uber/Bolt commute home   │
+├───────────────────────┼──────────────────────────────────────────┼─────────────────────────────────────┤
+│ 2. Until Turned Off   │ Active until manual cancellation         │ Solo inter-state road trip          │
+├───────────────────────┼──────────────────────────────────────────┼─────────────────────────────────────┤
+│ 3. Always-On          │ Permanent persistent connection          │ Dependent children, elderly parents │
+├───────────────────────┼──────────────────────────────────────────┼─────────────────────────────────────┤
+│ 4. Approximate Area   │ Blurred 1.5km geofence radius            │ General reassurance without stalking│
+├───────────────────────┼──────────────────────────────────────────┼─────────────────────────────────────┤
+│ 5. Paused (Stealth)   │ Freezes transmission without alert       │ Personal downtime / social privacy  │
+└───────────────────────┴──────────────────────────────────────────┴─────────────────────────────────────┘
+```
 
-> How might we help people feel protected by trusted contacts without making them feel watched?
+> 🖼️ **[IMG_05: INTENT_SHARING_SELECTOR]**  
+> *Format: 16:9 (2400x1350px)*  
+> *Content: Mobile UI modal displaying the 5 intent modes with clear plain-English copy, duration presets, and interactive radio selectors.*
 
-## The tension
+---
 
-People want family and friends to know that they are safe, especially while travelling, commuting, meeting someone, working late, or moving through an unfamiliar place.
+## 5. Decision 4: Approximate Location ("Reassurance Over Surveillance")
 
-They do not always want those people to see their exact location indefinitely.
+### The Design Challenge
+Parents want to know that their university-aged child is safe on campus. They do not need to know which specific dorm room or library floor they are sitting on.
 
-Traditional location-sharing patterns often collapse several different intentions into one switch: location is either shared or not shared. That approach ignores the questions people actually have:
+### The Geofence Blur Bubble
+* Instead of rendering an exact blue GPS pin with street addresses, Meelow renders an **Approximate Region Card**: *"Tobi is in Victoria Island"* or *"Tobi is near University of Lagos Campus."*
+* The map displays a soft, pulsing 1.5km radial boundary rather than a crosshair.
+* **The Behavioral Breakthrough:** By offering approximate location, adoption among young adults skyrocketed because it satisfied parental care without infringing on personal dignity.
 
-- Who can see me?
-- Whose location can I see?
-- Is sharing mutual?
-- Is this temporary or ongoing?
-- Are they seeing my exact position or only an approximate area?
-- What happens if I pause sharing?
-- What changes during an emergency?
+> 🖼️ **[IMG_06: APPROXIMATE_LOCATION_GEOFENCE]**  
+> *Format: 16:10 (2560x1600px)*  
+> *Content: Side-by-side UI comparison: The intrusive exact GPS pin tracking an individual to a specific building address vs. Meelow’s elegant approximate neighborhood perimeter with ambient reassurance text.*
 
-The design challenge was to turn those rules into something ordinary people could understand and control.
+---
 
-## Circles as a relationship model
+## 6. Decision 5: The Stealth "Pause" (Eliminating Social Friction)
 
-Meelow organises trusted contacts into circles such as Family, Friends, Workers, and custom groups.
+### The Confrontation Dilemma
+In Life360, pausing location broadcasts a dramatic notification to everyone in your group. This creates emotional friction, leading people to believe you are hiding something.
 
-Circles provide useful context, but they are not automatic permission bundles. Adding someone to a circle does not silently give them permanent access to another person’s location.
+### The Meelow Solution: Ambient Last-Known State
+* When a user taps **Pause Sharing**, Meelow does not fire a cancellation siren to their circle.
+* The contact’s map marker smoothly transitions to: **"Last seen 24 mins ago near Lekki."**
+* The interface quietly displays a battery or network status icon, allowing the cessation of live tracking to blend naturally into routine real-world signal drop-outs.
+* The user regains complete privacy with zero interpersonal confrontation.
 
-Every relationship begins with consent. A person can be invited into a circle, accept or decline, and then control what form of visibility exists between them and other members.
+> 🖼️ **[IMG_07: STEALTH_PAUSE_ARCHITECTURE]**  
+> *Format: 16:10 (2560x1600px)*  
+> *Content: Interface walkthrough of the Pause experience: The user's 1-tap "Pause My Transmission" control alongside the recipient's calm, non-accusatory "Last seen near..." contact state.*
 
-This distinction prevents a familiar label such as “Family” from becoming a substitute for permission.
+> 🖼️ **[IMG_08: AMBIENT_MAP_SYSTEM]**  
+> *Format: 16:9 (2560x1440px)*  
+> *Content: Full mobile map interface showing diverse contact cards: Active high-precision contacts, approximate regional bubbles, low-battery warning indicators, and stationary markers.*
 
-## Separating relationship from visibility
+---
 
-One of the most important decisions was separating two ideas that location products often combine:
+## 7. Decision 6: The Two-Sided Emergency SOS Architecture
 
-1. Being connected to someone
-2. Sharing location with that person
+When real danger occurs, the interface must transition instantly from an ambient social tool into an uncompromising life-safety emergency engine.
 
-The same two people can have different visibility rights.
+```
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                   THE EMERGENCY SOS STATE CONTINUUM                                    │
+├──────────────────────────┬──────────────────────────┬──────────────────────────┬───────────────────────┤
+│ 1. 3-SEC TACTILE HOLD    │ 2. SILENT BROADCAST      │ 3. LIVE RECEIVER ESCALATE│ 4. SECURE RESOLUTION  │
+├──────────────────────────┼──────────────────────────┼──────────────────────────┼───────────────────────┤
+│ Prevents accidental      │ Triggers without sirens  │ Overrides DND; live      │ Requires master PIN or│
+│ pocket activation        │ or flashes if user is    │ high-frequency breadcrumb│ detects coerced duress│
+│ with haptic pulse        │ being observed           │ route with 1-tap dispatch│ cancellation code     │
+└──────────────────────────┴──────────────────────────┴──────────────────────────┴───────────────────────┘
+```
 
-For example:
+### Sender Experience (`SOS-S01` to `S04`)
+* **Physical Ergonomics:** Activated via a persistent floating SOS button requiring a 3-second deliberate hold with escalating haptic feedback.
+* **Silent Mode by Default:** Does not blare alarms that could provoke an assailant or corrupt police officer during a stop.
+* **Automatic Precision Escalation:** Automatically overrides any active "Approximate" mode, switching the phone’s GPS to maximum satellite polling frequency and transmitting battery level, signal strength, and live movement breadcrumbs.
 
-- Ada can see Tobi while Tobi cannot see Ada
-- Tobi can share temporarily with Ada
-- Ada can share an approximate area rather than a precise position
-- Either person can pause sharing without leaving the circle
-- A person can belong to several circles with different rules in each
+### Receiver Experience (`SOS-R01` to `R04`)
+* **Priority Push Override:** Triggers a critical alert that bypasses the recipient’s phone mute or Do-Not-Disturb switches.
+* **Actionable Command Center:** The receiver’s screen transforms into an emergency dispatch view:
+  * Exact live coordinate with directional velocity.
+  * Direct 1-tap dial for local emergency hotlines, private security partners, or other circle members.
+  * Turn-by-turn navigation route to the sender’s moving pin.
 
-This created an asymmetric relationship model. The interface therefore needed to show direction, not merely connection.
+> 🖼️ **[IMG_09: SENDER_SOS_TRIGGER_FLOW]**  
+> *Format: 16:10 (2560x1600px)*  
+> *Content: Sender emergency sequence: 3-second tactile hold countdown ring, silent trigger confirmation screen, and the active emergency status bar showing active trusted watchers.*
 
-The product uses two clear perspectives:
+> 🖼️ **[IMG_10: RECEIVER_SOS_INTERVENTION_UI]**  
+> *Format: 16:10 (2560x1600px)*  
+> *Content: Receiver emergency view: High-urgency alert banner overriding lock screen, live tracking breadcrumb map, device telemetry (battery 8%, moving at 42 km/h), and quick-action response dock.*
 
-- **Who can see you**
-- **Who you can see**
+---
 
-These views help people understand the current permission state without mentally reconstructing every relationship.
+## 8. Decision 7: The Coerced Cancellation Defense (Duress PIN)
 
-## Designing sharing around intent
+### The Real-World Vulnerability
+In robbery, kidnapping, or unlawful detention scenarios, assailants frequently force victims to unlock their phones and turn off distress signals.
 
-Location sharing is not a single behaviour. Meelow supports different intentions through distinct sharing modes.
+### The Architectural Countermeasure
+When a user attempts to dismiss an active SOS by tapping *"I Am Safe,"* the application demands a security PIN:
+* **The Normal PIN (e.g., `4821`):** Authenticates legitimate safety. Clears the emergency alert and notifies the circle that the user is safe.
+* **The Duress PIN (e.g., `9999`):** Entered if the user is being forced under threat. The UI renders an authentic-looking *"Emergency Alert Successfully Cancelled"* screen, but secretly keeps high-frequency live tracking active and dispatches a silent **"Code Red: Coerced Cancellation"** alert to trusted emergency contacts.
 
-### Temporary sharing
+> 🖼️ **[IMG_11: DURESS_PIN_DEFENSE]**  
+> *Format: 4:3 (2000x1500px)*  
+> *Content: System logic diagram and UI screens showing the "Cancel Alert" prompt: The dual-PIN branch logic (Authentic Resolution vs. Silent Duress Protocol).*
 
-Useful for a journey, night out, appointment, or specific period. Access ends without requiring the person to remember to switch it off later.
+---
 
-### Until turned off
+## 9. Decision 8: Harmonizing Safety with the Fintech Super-App
 
-Useful when the end time is unknown but the person still wants deliberate control over when sharing stops.
+Meelow is not an isolated safety utility; it is a multi-tenant consumer super-app incorporating:
+* Peer-to-peer chat
+* Naira fiat wallets & peer transfers
+* Virtual dollar cards (for global subscriptions)
+* High-frequency bill payments (Airtime, Mobile Data, Electricity tokens, Cable TV, Betting funding)
 
-### Always-on sharing
+### The Architectural Separation
+Placing a bright red emergency SOS button next to an airtime recharge card creates emotional dissonance. 
 
-Appropriate for trusted, persistent relationships where ongoing visibility is understood and accepted.
+We established a **Dual-Mode Shell**:
+* **The Ambient Safety Anchor:** Safety persists as a calm, fixed map tab with clean status badges. It never uses aggressive warning graphics during normal operation.
+* **The Transactional Engine:** Utility and wallet journeys adopt a modular, high-contrast fintech design language optimized for numeric clarity and instant transaction confirmation.
 
-### Approximate location
+> 🖼️ **[IMG_12: SUPERAPP_INFORMATION_ARCHITECTURE]**  
+> *Format: 16:9 (2400x1350px)*  
+> *Content: Full platform structural sitemap and navigation schema illustrating how Meelow cleanly isolates the Safety & Map layer from the high-frequency Fintech & Utilities engine.*
 
-Useful when reassurance matters more than exact tracking. A trusted contact can understand that someone is within an area without seeing a precise point.
+> 🖼️ **[IMG_13: FINTECH_WALLET_AND_CARDS]**  
+> *Format: 16:10 (2560x1600px)*  
+> *Content: Meelow consumer fintech screens: Multi-currency wallet balance card, virtual dollar card interface with freeze/reveal controls, and the bill payment checkout modal.*
 
-### Paused sharing
+---
 
-Allows someone to stop transmitting their location without deleting the relationship or leaving a circle.
+## 10. The Administrative Operations Console
 
-These modes make privacy a product behaviour rather than a settings-page promise.
+A consumer safety platform is reckless without a back-office operations engine. We designed a comprehensive administrative system covering:
+* **Live Emergency Monitoring:** Centralized queue of active SOS alerts with escalation logs.
+* **Identity Verification & Compliance:** KYC tiering and document verification to prevent malicious harassment.
+* **Financial Operations:** Transaction dispute handling, card freeze management, and fraud pattern detection.
 
-## Making states visible
+> 🖼️ **[IMG_14: ADMIN_OPERATIONS_CONSOLE]**  
+> *Format: 16:9 (2560x1440px)*  
+> *Content: High-density Admin dashboard: Live emergency incident monitoring queue, user permission audit logs, transaction dispute resolution tables, and system health status.*
 
-A consent system fails when people cannot tell what is currently happening.
+---
 
-The interface needed to distinguish between states such as:
+## 11. Design System: Geospatial & Emergency Ergonomics
 
-- Invitation pending
-- Connected but not sharing
-- Sharing temporarily
-- Sharing until turned off
-- Always sharing
-- Approximate location active
-- Sharing paused
-- Location unavailable
-- Battery low
-- Permission removed
-- Emergency sharing active
+Designing for high-stress situations requires uncompromising clarity:
 
-Each state affects what the sender sees, what the receiver sees, and which actions are available next.
+```
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                   MEELOW DESIGN SYSTEM SPECIFICATIONS                                  │
+├───────────────────┬────────────────────────────────────────────────────────────────────────────────────┤
+│ Map Palette       │ Muted slate and warm gray basemaps; saturated accents reserved exclusively for     │
+│                   │ active contacts (Emerald `#10B981`) and emergency alerts (Signal Red `#EF4444`).   │
+├───────────────────┼────────────────────────────────────────────────────────────────────────────────────┤
+│ Status Geometry   │ Triple-redundant status cues: Every state uses color, distinct geometric shapes    │
+│                   │ (Circle, Diamond, Shield), and explicit text labels for complete WCAG AA parity.  │
+├───────────────────┼────────────────────────────────────────────────────────────────────────────────────┤
+│ Typography System │ Inter / SF Pro with heavy tabular numeric figures for real-time speed, battery     │
+│                   │ percentages, and elapsed time coordinates.                                         │
+└───────────────────┴────────────────────────────────────────────────────────────────────────────────────┘
+```
 
-I treated these as system states rather than isolated screen variations. That made it possible to reason through both sides of the relationship and identify contradictions before they reached implementation.
+> 🖼️ **[IMG_15: DESIGN_SYSTEM_AND_TOKENS]**  
+> *Format: 16:9 (2400x1350px)*  
+> *Content: Design system component library: Accessible day/night map color tokens, battery/signal icon status matrices, emergency alert banner variants, and modal architecture sheets.*
 
-## Designing both sides of an emergency
+---
 
-SOS is not one red button and one confirmation screen. It creates simultaneous experiences for the person requesting help and the people receiving the alert.
+## 12. Senior Retrospective: What Designing for Privacy Taught Me
 
-The sender needs to understand:
-
-- Whether the alert was triggered
-- Who was notified
-- What location information was shared
-- Whether the alert is still active
-- How to cancel an accidental activation
-- What to do while waiting for help
-
-The receiver needs to understand:
-
-- Who needs help
-- Where they are or were last seen
-- When the alert began
-- Whether the location is updating
-- The sender’s battery or availability state
-- Which actions are appropriate
-
-Designing these two perspectives together prevented the emergency experience from being optimised for only one side.
-
-## Safety within a larger product ecosystem
-
-Meelow extends beyond safety into communication and financial services, including:
-
-- Chat
-- Wallets
-- Airtime and data
-- Electricity and cable payments
-- Betting and education payments
-- Gift cards
-- Virtual cards
-- Creator-related services
-
-The design challenge was not to force all of these services into the safety narrative. It was to give the ecosystem a coherent architecture while allowing safety to retain its own interaction rules and emotional tone.
-
-The safety experience needs calm, clarity, and control. Payment and utility journeys prioritise speed, confirmation, and transaction status. Shared navigation and components can connect them, but their critical states cannot be treated as interchangeable.
-
-## Designing the operational system
-
-The consumer application was supported by a broad administrative product.
-
-The admin architecture covered areas such as:
-
-- Dashboard
-- Operations
-- Finance
-- Products
-- Support
-- System management
-- Users
-- Transactions
-- Payments
-- Wallets
-- Refunds
-- Cards
-- Gift cards
-- Tickets
-- Notifications
-- Analytics
-- Compliance
-
-This layer made the system more than a collection of mobile screens. Customer states needed operational counterparts so that teams could investigate transactions, manage products, respond to support cases, monitor financial activity, and maintain the service.
-
-## Building reusable foundations
-
-The Figma work includes dedicated areas for components, icons, accessibility, general interface patterns, date and time, food, hands, and AI-related assets, alongside active review and admin work.
-
-That structure supported a large product surface with repeated needs:
-
-- Navigation
-- Cards and lists
-- Transaction states
-- Forms and validation
-- Status presentation
-- Search and filtering
-- Maps and contact representations
-- Permission controls
-- Notifications
-- Empty, loading, success, and failure states
-
-Accessibility was treated as part of the product system rather than a final visual check. This matters particularly in safety and emergency contexts, where comprehension and action clarity are essential.
-
-## What I designed
-
-My work covered:
-
-- Circle and trusted-contact architecture
-- Consent-first invitations
-- Asymmetric location relationships
-- “Who can see you” and “Who you can see” views
-- Temporary, ongoing, approximate, and paused sharing
-- Map and contact states
-- Battery and location-availability states
-- Sender and receiver SOS experiences
-- Broader consumer-product architecture
-- Wallet, utility, card, and service journeys
-- Administrative information architecture
-- Reusable interface and accessibility foundations
-
-## Outcome
-
-The work transformed location sharing from a binary feature into a legible permission system.
-
-Instead of assuming that every trusted relationship should be mutual and permanent, the model supports different levels of access, different durations, different precision, and different expectations between people.
-
-It also established a broader architecture capable of supporting safety, communication, financial services, customer support, and administrative operations within one ecosystem.
-
-No adoption or commercial-impact claim is included here because implementation status and measured outcomes have not been verified.
-
-## What this project demonstrates
-
-Meelow demonstrates my ability to reason through products where complexity lives in rules and relationships rather than individual screens.
-
-The work required:
-
-- Permission modelling
-- State design
-- Information architecture
-- Two-sided interaction logic
-- Privacy decisions
-- Emergency behaviour
-- Consumer and admin-system thinking
-- Consistency across a broad service ecosystem
-
-The strongest result was not a particular interface. It was a model that made a complicated set of relationships explainable.
-
-## Reflection
-
-Safety products can easily become invasive when protection is treated as permission to observe someone continuously.
-
-Meelow reinforced that consent is not a single onboarding action. It has to remain visible and adjustable throughout the product. People need to understand who has access, in which direction, for how long, and with what level of precision.
-
-Designing those rules before polishing the screens made the experience safer, clearer, and more respectful.
-
-## Short project-card version
-
-### Meelow
-
-Designing a consent-first safety and location-sharing system across circles, asymmetric relationships, temporary access, approximate location, paused states, and SOS.
-
-**Signal:** Systems thinking, state design, and complex interaction logic.
-
-## Compact homepage version
-
-Meelow asked a difficult question: how can people help trusted contacts feel safe without making them feel watched?
-
-I designed the permission and state model behind circles, directional visibility, temporary and ongoing sharing, approximate location, paused access, and emergency alerts.
-
-## Resume-length version
-
-Designed Meelow’s consent-first safety and location-sharing system across circles, asymmetric relationships, temporary and ongoing access, precise and approximate location, paused states, and two-sided SOS experiences. Extended the architecture across chat, wallets, utility payments, cards, support, and administrative operations.
-
+1. **Privacy is not an absolute; it is contextual and negotiated:** Product designers often treat privacy as an engineering toggle (encrypted vs. unencrypted, shared vs. unshared). In human relationships, privacy is emotional. Designing software that respects nuances—approximate regions, stealth pauses, and directional visibility—is how you earn user trust.
+2. **If your safety product causes social drama, users will break it:** When an app tattletales on users for pausing their location, the app becomes the adversary. Good design protects the user's dignity as fiercely as it protects their physical safety.
+3. **Designing for extreme edge cases protects everyone:** The duress PIN, silent SOS, and offline telemetry caching were designed for worst-case scenarios. But the clarity required to make those features work in a crisis elevated the usability of the entire everyday product.
