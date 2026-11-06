@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { TwitterXIcon, InstagramIcon, LinkedInIcon } from './Icons';
+import { TwitterXIcon, InstagramIcon, LinkedInIcon, GitHubIcon } from './Icons';
 
 export default function PageFooter() {
   const [lagosTime, setLagosTime] = useState('');
@@ -65,14 +65,17 @@ export default function PageFooter() {
 
           <span className="text-neutral-500 block text-xs mb-2 font-mono uppercase tracking-wider text-[10px]">Socials</span>
           <div className="flex items-center gap-3 text-neutral-400">
-            <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="hover:text-white">
-              <TwitterXIcon className="w-3.5 h-3.5" />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white">
-              <InstagramIcon className="w-3.5 h-3.5" />
+            <a href="https://github.com/victory-loqd" target="_blank" rel="noopener noreferrer" className="hover:text-white" aria-label="GitHub">
+              <GitHubIcon className="w-3.5 h-3.5" />
             </a>
             <a href="https://linkedin.com/in/victory-chukwuma" target="_blank" rel="noopener noreferrer" className="hover:text-white" aria-label="LinkedIn">
               <LinkedInIcon className="w-3.5 h-3.5" />
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="hover:text-white" aria-label="X">
+              <TwitterXIcon className="w-3.5 h-3.5" />
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white" aria-label="Instagram">
+              <InstagramIcon className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>

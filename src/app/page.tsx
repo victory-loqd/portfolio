@@ -4,8 +4,8 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
+import Avatar from '@/components/Avatar';
 import {
-  Signature,
   FramerLogoIcon,
   MonitorIcon,
   PaintbrushIcon,
@@ -44,11 +44,31 @@ export default function HomePage() {
   ];
 
   const services = [
-    { name: 'Platform Systems Architecture', icon: <FramerLogoIcon className="w-5 h-5 text-white" /> },
-    { name: 'Multi-Tenant Design Systems', icon: <GridSquaresIcon className="w-5 h-5 text-white" /> },
-    { name: '0-to-1 Product Strategy & Operations', icon: <MonitorIcon className="w-5 h-5 text-white" /> },
-    { name: 'Defensive UX & State Machine Modeling', icon: <PaintbrushIcon className="w-5 h-5 text-white" /> },
-    { name: 'Physical-Digital Service Design', icon: <WindowCardIcon className="w-5 h-5 text-white" /> },
+    {
+      title: 'Platform Systems Architecture',
+      description: 'Multi-tenant applications, administrative operations, and complex domain models.',
+      icon: <FramerLogoIcon className="w-5 h-5 text-white" />,
+    },
+    {
+      title: '0-to-1 Service Design & Operations',
+      description: 'End-to-end service blueprints uniting physical custody, onsite staff, and mobile interfaces.',
+      icon: <WindowCardIcon className="w-5 h-5 text-white" />,
+    },
+    {
+      title: 'Defensive UX & State Machine Modeling',
+      description: 'Mapping asynchronous edge cases, timeouts, and error recoveries before visual layout.',
+      icon: <PaintbrushIcon className="w-5 h-5 text-white" />,
+    },
+    {
+      title: 'Geospatial Privacy & Permission Engines',
+      description: 'Asymmetric consent, stealth pause mechanisms, and safety without surveillance.',
+      icon: <MonitorIcon className="w-5 h-5 text-white" />,
+    },
+    {
+      title: 'Multi-Product Design Systems',
+      description: 'Scalable token structures, component hierarchies, and typed engineering contracts.',
+      icon: <GridSquaresIcon className="w-5 h-5 text-white" />,
+    },
   ];
 
   const techStack = [
@@ -88,42 +108,33 @@ export default function HomePage() {
     <div className="w-full flex flex-col">
       {/* ────────────────── AVATAR & HERO INTRO ────────────────── */}
       <section className="mb-20">
-        {/* Avatar Squircle */}
-        <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden mb-8 border border-white/[0.08] bg-[#121214]">
-          <Image
-            src="/images/liam/otrdW4VIyZhPn1yWg7fN0.png"
-            alt="Victory Chukwuma"
-            fill
-            className="object-cover"
-            priority
-          />
+        {/* Custom Personal Monogram Avatar */}
+        <div className="mb-8">
+          <Avatar size="md" />
         </div>
 
         {/* Master Heading */}
         <h1 className="text-3xl sm:text-5xl font-medium tracking-tight text-white mb-2 leading-tight">
-          Hey! I&apos;m Victory Chukwuma
+          Victory Chukwuma
         </h1>
-        <p className="text-base sm:text-lg text-neutral-400 font-normal mb-8">
-          Lead Product Designer + Systems Architect
+        <p className="text-base sm:text-lg text-neutral-300 font-normal mb-8">
+          Product Designer &amp; Systems Builder
         </p>
 
-        {/* Bio Copy matching Liam Hayes exact styling */}
+        {/* Authentic Bio Narrative */}
         <div className="flex flex-col gap-4 text-sm sm:text-base text-neutral-400 font-normal leading-relaxed max-w-2xl mb-8">
-          <p>
-            I&apos;m a lead product designer with 6+ years of experience crafting digital
-            products, platforms, and brand experiences. I combine strategy, usability, and visual
-            systems to create work that looks great and works even better. Every detail has a purpose.
+          <p className="text-neutral-200">
+            I design products with a lot of moving parts — figuring out how they should work, how
+            people move through them, and how the whole system fits together.
           </p>
           <p>
-            When I&apos;m not designing, you&apos;ll probably find me untangling state machines, building
-            0-to-1 ventures, or obsessing over edge cases that keep products durable. Good design,
-            good vibes, and a little bit of obsession with systems discipline. Curiosity keeps the ideas coming.
+            Over the past 6+ years, I&apos;ve specialized in bringing structure to complex and
+            early-stage products: multi-tenant platform architectures, regulatory insurtech,
+            physical-digital service operations, and defensive state machines.
           </p>
-        </div>
-
-        {/* Signature */}
-        <div className="mb-14">
-          <Signature />
+          <p className="text-xs sm:text-sm text-neutral-500 font-mono pt-2">
+            Currently: Lead Product Designer at <span className="text-neutral-300">Skydd</span> &middot; Founder of <span className="text-neutral-300">LOQD</span> &middot; Based in Lagos, Nigeria.
+          </p>
         </div>
       </section>
 
@@ -183,11 +194,18 @@ export default function HomePage() {
         <div className="flex flex-col gap-3">
           {services.map((service) => (
             <div
-              key={service.name}
-              className="p-5 rounded-2xl bg-[#0c0c0e] border border-white/[0.08] hover:border-white/[0.2] hover:bg-[#121215] transition-all flex items-center justify-between text-base text-neutral-200 cursor-default group"
+              key={service.title}
+              className="p-5 rounded-2xl bg-[#0c0c0e] border border-white/[0.08] hover:border-white/[0.2] hover:bg-[#121215] transition-all flex items-center justify-between cursor-default group"
             >
-              <span>{service.name}</span>
-              <div className="opacity-80 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all">
+              <div className="flex flex-col gap-1">
+                <span className="text-base text-neutral-200 group-hover:text-white transition-colors font-medium">
+                  {service.title}
+                </span>
+                <span className="text-xs text-neutral-500 font-normal">
+                  {service.description}
+                </span>
+              </div>
+              <div className="opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0 ml-4">
                 {service.icon}
               </div>
             </div>

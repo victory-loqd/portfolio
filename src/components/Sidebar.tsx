@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
-import { TwitterXIcon, InstagramIcon, LinkedInIcon } from './Icons';
+import { TwitterXIcon, InstagramIcon, LinkedInIcon, GitHubIcon } from './Icons';
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -56,28 +56,21 @@ export default function Sidebar() {
             >
               Victory Chukwuma
             </Link>
-            <a
-              href="mailto:designwithvee@gmail.com?subject=Project%20Inquiry"
+            <Link
+              href="/contact"
               className="bg-white text-black px-3 py-1 rounded-full text-xs font-medium hover:bg-neutral-200 transition-colors"
             >
-              Book a call
-            </a>
+              Get in touch
+            </Link>
           </div>
 
-          {/* Availability Status Strip */}
-          <div className="mt-6 border border-[#222222] bg-[#080808] rounded-full px-3 py-1.5 flex items-center justify-between text-[11px] text-neutral-400">
-            <div className="flex items-center gap-1.5 shrink-0">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span className="text-neutral-300">Available</span>
+          {/* Professional Status Pill */}
+          <div className="mt-6 border border-white/[0.08] bg-[#09090b] rounded-full px-3.5 py-1.5 flex items-center justify-between text-[11px] text-neutral-400">
+            <div className="flex items-center gap-2 shrink-0">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              <span className="text-neutral-200 font-medium">Open to Roles</span>
             </div>
-            {/* Equalizer bars */}
-            <div className="flex items-center gap-[2px] mx-1 shrink-0">
-              <span className="w-[1.5px] h-2 bg-neutral-600 animate-pulse"></span>
-              <span className="w-[1.5px] h-3 bg-neutral-400 animate-pulse delay-75"></span>
-              <span className="w-[1.5px] h-1.5 bg-neutral-600 animate-pulse delay-150"></span>
-              <span className="w-[1.5px] h-2.5 bg-neutral-400 animate-pulse delay-100"></span>
-            </div>
-            <span className="text-[10px] text-neutral-500 shrink-0">2 slots left for Q2 2026</span>
+            <span className="text-[10px] text-neutral-500 font-mono">Lagos / Remote</span>
           </div>
 
           {/* Nav Links */}
@@ -121,6 +114,24 @@ export default function Sidebar() {
           {/* Social Icons Row */}
           <div className="flex items-center gap-4 text-neutral-400 pt-1">
             <a
+              href="https://github.com/victory-loqd"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="hover:text-white transition-colors"
+            >
+              <GitHubIcon className="w-4 h-4" />
+            </a>
+            <a
+              href="https://linkedin.com/in/victory-chukwuma"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="hover:text-white transition-colors"
+            >
+              <LinkedInIcon className="w-4 h-4" />
+            </a>
+            <a
               href="https://x.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -137,15 +148,6 @@ export default function Sidebar() {
               className="hover:text-white transition-colors"
             >
               <InstagramIcon className="w-4 h-4" />
-            </a>
-            <a
-              href="https://linkedin.com/in/victory-chukwuma"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="hover:text-white transition-colors"
-            >
-              <LinkedInIcon className="w-4 h-4" />
             </a>
           </div>
 
@@ -169,12 +171,12 @@ export default function Sidebar() {
           Victory Chukwuma
         </Link>
         <div className="flex items-center gap-3">
-          <a
-            href="mailto:designwithvee@gmail.com?subject=Project%20Inquiry"
+          <Link
+            href="/contact"
             className="bg-white text-black px-3 py-1 rounded-full text-xs font-medium"
           >
-            Book a call
-          </a>
+            Get in touch
+          </Link>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="text-neutral-400 hover:text-white p-1"
@@ -189,12 +191,12 @@ export default function Sidebar() {
       {mobileOpen && (
         <div className="lg:hidden fixed inset-0 top-[57px] bg-[#000000] z-40 p-6 flex flex-col justify-between">
           <div>
-            <div className="border border-[#222222] bg-[#080808] rounded-full px-3.5 py-2 flex items-center justify-between text-xs text-neutral-400 mb-6">
-              <div className="flex items-center gap-1.5">
+            <div className="border border-white/[0.08] bg-[#09090b] rounded-full px-3.5 py-2 flex items-center justify-between text-xs text-neutral-400 mb-6">
+              <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                <span className="text-neutral-300">Available</span>
+                <span className="text-neutral-200 font-medium">Open to Roles</span>
               </div>
-              <span className="text-[11px]">2 slots left for Q2 2026</span>
+              <span className="text-[11px] font-mono text-neutral-500">Lagos / Remote</span>
             </div>
 
             <nav className="flex flex-col gap-4 text-xl">

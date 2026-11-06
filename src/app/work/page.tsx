@@ -70,13 +70,19 @@ export default function WorkPage() {
     <div className="w-full flex flex-col">
       {/* ────────────────── HEADER WITH FILTER ────────────────── */}
       <section className="mb-12">
-        <div className="flex items-center justify-between">
-          <h1 className="text-3xl sm:text-5xl font-medium tracking-tight text-white">
-            Latest Projects
-          </h1>
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <h1 className="text-3xl sm:text-5xl font-medium tracking-tight text-white mb-2">
+              Selected Works
+            </h1>
+            <p className="text-xs sm:text-sm text-neutral-400 font-normal max-w-md">
+              Six production case studies detailing systems architecture, physical custody operations,
+              and interface engineering.
+            </p>
+          </div>
 
-          {/* Filter Dropdown matching Liam Hayes */}
-          <div className="relative">
+          {/* Filter Dropdown */}
+          <div className="relative shrink-0">
             <select
               value={filter}
               onChange={(e) => setFilter(e.target.value)}
